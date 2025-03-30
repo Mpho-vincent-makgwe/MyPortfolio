@@ -1,7 +1,7 @@
 [
     {
-        "date": "Sept 20",
-        "author": "Vincent",
+        "date": "Sept 24",
+        "author": "Mpho Vincent",
         "topic": "Programming",
         "language": "Kotlin",
         "link": "-Getting-Started-with-Kotlin",
@@ -142,8 +142,8 @@
         ]
     },
     {
-        "date": "Sept 22",
-        "author": "Armaan",
+        "date": "Sept 24",
+        "author": "Mpho Vincent",
         "topic": "Programming",
         "language": "Kotlin",
         "link": "-Intermediate-Kotlin-Programming",
@@ -261,8 +261,8 @@
         ]
     },
     {
-        "date": "Sept 21",
-        "author": "Armaan",
+        "date": "Jan 23",
+        "author": "Mpho Vincent",
         "topic": "Leet Code",
         "language": "Kotlin",
         "link": "-Leet Code-Longest-Substring-Without-Repeating-Characters",
