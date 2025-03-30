@@ -259,7 +259,7 @@ function Hero() {
                             <Link
                                 className="px-[0.75rem] py-[0.50rem] border-[1px] border-solid border-[#350078] font-bold rounded-[8px] hover:cursor-pointer animate-glow"
                                 target={"_blank"}
-                                href={"/Resume - Armaan Jaj.pdf"}
+                                href={"/M.V Makgwe_Resume(Full-Stack) (3).pdf"}
                                 // download={"/Resume.pdf"}
                             >
                                 Download Resume
