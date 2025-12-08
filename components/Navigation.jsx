@@ -51,9 +51,8 @@ function Hamburger() {
     return (
         <>
             <motion.div
-                className={`flex flex-col justify-start items-start absolute w-full top-0 left-0 z-50 overflow-hidden bg-[#08001ae0] backdrop-blur-lg ${
-                    isMenuOpen ? "h-screen" : "h-0"
-                }`}
+                className={`flex flex-col justify-start items-start absolute w-full top-0 left-0 z-50 overflow-hidden bg-[#08001ae0] backdrop-blur-lg ${isMenuOpen ? "h-screen" : "h-0"
+                    }`}
                 variants={menuVariants}
                 initial="closed"
                 animate={isMenuOpen ? "open" : "closed"}
@@ -104,7 +103,7 @@ function Hamburger() {
                         >
                             <Link
                                 className="text-[3rem] font-bold"
-                                href="/idea"
+                                href="/blogs"
                             >
                                 Blogs
                             </Link>
@@ -142,9 +141,8 @@ function Hamburger() {
             >
                 <DehazeIcon
                     onClick={toggleMenu}
-                    className={`mobile:scale-[200%] tablet:scale-[200%] laptop:scale-[150%] desktop:scale-[150%] rotate-90 mobile:absolute tablet:absolute laptop:static desktop:static mt-[60px] mobile:mx-[20px] tablet:mx-[40px] laptop:mx-[50px] desktop:mx-[50px] hover:cursor-pointer ${
-                        isMenuOpen ? "hidden" : ""
-                    }`}
+                    className={`mobile:scale-[200%] tablet:scale-[200%] laptop:scale-[150%] desktop:scale-[150%] rotate-90 mobile:absolute tablet:absolute laptop:static desktop:static mt-[60px] mobile:mx-[20px] tablet:mx-[40px] laptop:mx-[50px] desktop:mx-[50px] hover:cursor-pointer ${isMenuOpen ? "hidden" : ""
+                        }`}
                 />
             </motion.div>
         </>

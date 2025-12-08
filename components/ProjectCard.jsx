@@ -2,46 +2,49 @@ import React from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkIcon from "@mui/icons-material/Link";
 import Link from "next/link";
+import GlassCard from "./GlassCard";
 
 function ProjectCard({ title, slug, overview, stack, links }) {
     return (
-        <div className="flex flex-col justify-between items-stretch rounded-[5px] bg-[#110036] mobile:w-[100%] tablet:w-[20rem] laptop:w-[20rem] desktop:w-[20rem] h-[16rem] p-5 hover:-translate-y-[7px] transition-all ease-cubic-bezier delay-0 opacity duration-[0.25s]">
-            <Link target="_top" href={`/projects/${slug}`}>
-                <div className="text-[25px] font-bold">{title}</div>
-                <div className="py-5 h-fit font-semibold text-[#c2c2c2]">
-                    {overview.length > 110
-                        ? overview.slice(0, 110) + " ..."
-                        : overview.slice(0, 110)}
+        <GlassCard className="flex flex-col justify-between items-stretch w-full tablet:w-[20rem] h-[18rem] hover:-translate-y-2">
+            <Link href={`/projects/${slug}`} className="group">
+                <div className="text-2xl font-bold text-secondary group-hover:text-primary transition-colors duration-300 mb-4">{title}</div>
+                <div className="text-sm font-medium text-gray-300 line-clamp-4 leading-relaxed">
+                    {overview || "No description available."}
                 </div>
             </Link>
-            <div className="flex flex-row justify-between items-center">
-                {stack.slice(0, 3).map((item, i) => (
-                    <div key={i} className="text-[12px] text-[#a4a4a4]">
-                        {item}
-                    </div>
-                ))}
-                <div className="flex flex-row justify-center items-center gap-3">
+
+            <div className="flex flex-col gap-4 mt-4 border-t border-white/10 pt-4">
+                <div className="flex flex-wrap gap-2">
+                    {stack?.slice(0, 3).map((item, i) => (
+                        <span key={i} className="text-xs px-2 py-1 rounded-full bg-white/5 text-accent border border-white/10">
+                            {item}
+                        </span>
+                    ))}
+                </div>
+
+                <div className="flex flex-row justify-end items-center gap-4 text-white/80">
                     <a
                         target="_blank"
                         href={links.github}
                         rel="noopener noreferrer"
+                        className="hover:text-primary transition-colors"
                     >
                         <GitHubIcon />
                     </a>
-                    {!links.hosted ? (
-                        ""
-                    ) : (
+                    {links.hosted && (
                         <a
                             target="_blank"
                             href={links.hosted}
                             rel="noopener noreferrer"
+                            className="hover:text-primary transition-colors"
                         >
                             <LinkIcon />
                         </a>
                     )}
                 </div>
             </div>
-        </div>
+        </GlassCard>
     );
 }
 

@@ -1,14 +1,14 @@
 import Head from "next/head";
 
 function Meta({
-    title = "Armaan Jaj | Software Developer",
+    title = "Mpho Vincent Makgwe | Software Developer",
     keywords = "web dev, web development, web development articles, web development blogs, web development portfolio, portfolio website",
-    description = "Armaan Singh Jaj is a Full stack web developer and designer who specializes in building exceptional digital experiences and this particular portfolio project is designed and built by Armaan Jaj.",
-    seoTitle = "Armaan Jaj | Software Developer",
-    seoDescription = "Armaan Singh Jaj is a Full stack web developer and designer who specializes in building exceptional digital experiences and this particular portfolio project is designed and built by Armaan Jaj.",
-    seoURL = "https://www.armaancodes.com/",
-    seoImage = "https://user-images.githubusercontent.com/113659942/231727880-4a93c014-a9a6-4071-9920-c7b66ba4ab9a.png",
-    twitterCreator = "armaanjaj",
+    description = "Mpho Vincent Makgwe is a Full stack web developer and designer who specializes in building exceptional digital experiences and this particular portfolio project is designed and built by Armaan Jaj.",
+    seoTitle = "Mpho Vincent Makgwe | Software Developer",
+    seoDescription = "Mpho Vincent Makgwe is a Full stack web developer and designer who specializes in building exceptional digital experiences and this particular portfolio project is designed and built by Armaan Jaj.",
+    seoURL = "https://www.Mpho.vincetek.co.za/",
+    seoImage = "",
+    twitterCreator = "mphoVincentMakgwe",
     theme = "#08001A"
 }) {
     return (
@@ -39,7 +39,7 @@ function Meta({
             />
 
             <meta charSet="utf-8" />
-            <link rel="canonical" href="https://www.armaancodes.com/" />
+            <link rel="canonical" href="https://www.Mpho.vincetek.co.za/" />
             <link rel="icon" href="/favicon.ico" />
             <title>{title}</title>
         </Head>
