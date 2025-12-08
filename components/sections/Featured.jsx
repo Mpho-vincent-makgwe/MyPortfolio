@@ -51,7 +51,7 @@ function Featured() {
                     }}
                     className="pr-10"
                 >
-                    <Link href={"/idea"}>
+                    <Link href={"/blogs"}>
                         <Idea className="smallMobile:scale-105 mobile:scale-105 tablet:scale-110 laptop:scale-150 desktop:scale-[190%] largeDesktop:scale-[200%]" />
                     </Link>
                 </motion.div>

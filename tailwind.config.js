@@ -18,55 +18,44 @@ module.exports = {
             largeDesktop: "1920px",
         },
         extend: {
+            colors: {
+                // New Palette
+                primary: "#008080", // Teal
+                secondary: "#87CEEB", // Sky Blue
+                accent: "#D2B48C", // Tan
+                neutral: {
+                    100: "#F5F5F5", // White/Light Gray
+                    200: "#E0E0E0",
+                    800: "#333333", // Dark Gray
+                    900: "#1A1A1A", // Black
+                },
+                glass: {
+                    100: "rgba(255, 255, 255, 0.1)",
+                    200: "rgba(255, 255, 255, 0.2)",
+                }
+            },
             animation: {
                 glow: "glow 2.5s ease-in infinite;",
+                float: "float 6s ease-in-out infinite",
             },
             keyframes: {
                 glow: {
                     "0%": {
-                        backgroundColor: "#9d4dff",
-                        boxShadow: "0 0 15px 0 #9d4dff",
-                    },
-                    "10%": {
-                        backgroundColor: "#811aff",
-                        boxShadow: "0 0 13px 0 #9d4dff",
-                    },
-                    "20%": {
-                        backgroundColor: "#6700e6",
-                        boxShadow: "0 0 11px 0 #9d4dff",
-                    },
-                    "30%": {
-                        backgroundColor: "#5000b3",
-                        boxShadow: "0 0 9px 0 #9d4dff",
-                    },
-                    "40%": {
-                        backgroundColor: "#390080",
-                        boxShadow: "0 0 7px 0 #9d4dff",
+                        backgroundColor: "#008080",
+                        boxShadow: "0 0 15px 0 #008080",
                     },
                     "50%": {
-                        backgroundColor: "#390080",
-                        boxShadow: "0 0 5px 0 #9d4dff",
-                    },
-                    "60%": {
-                        backgroundColor: "#350078",
-                        boxShadow: "0 0 7px 0 #9d4dff",
-                    },
-                    "70%": {
-                        backgroundColor: "#450099",
-                        boxShadow: "0 0 9px 0 #9d4dff",
-                    },
-                    "80%": {
-                        backgroundColor: "#5c00cc",
-                        boxShadow: "0 0 11px 0 #9d4dff",
-                    },
-                    "90%": {
-                        backgroundColor: "#7300ff",
-                        boxShadow: "0 0 13px 0 #9d4dff",
+                        backgroundColor: "#87CEEB",
+                        boxShadow: "0 0 15px 0 #87CEEB",
                     },
                     "100%": {
-                        backgroundColor: "#8f33ff",
-                        boxShadow: "0 0 15px 0px #9d4dff",
+                        backgroundColor: "#008080",
+                        boxShadow: "0 0 15px 0px #008080",
                     },
+                },
+                float: {
+                    "0%, 100%": { transform: "translateY(0)" },
+                    "50%": { transform: "translateY(-20px)" },
                 }
             },
         },
