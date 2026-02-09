@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import DehazeIcon from "@mui/icons-material/Dehaze";
 import CloseIcon from "@mui/icons-material/Close";

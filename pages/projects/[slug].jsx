@@ -1,3 +1,4 @@
+"use client";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -19,6 +20,11 @@ function SlugPage() {
     const [projectDetails, setProjectDetails] = useState([]);
     const [slug, setSlug] = useState("");
     const [loading, setLoading] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const projectData = useAxios({
         method: "post",
@@ -27,7 +33,7 @@ function SlugPage() {
     });
 
     useEffect(() => {
-        if (!router.isReady) return;
+        if (!router.isReady || !mounted) return;
 
         setLoading(true);
         setSlug(router.query.slug);
@@ -36,7 +42,7 @@ function SlugPage() {
             setProjectDetails(projectData.response);
             setLoading(false);
         }
-    }, [router.isReady, router.query, projectData]);
+    }, [router.isReady, router.query, projectData.response, mounted]);
 
     return (
         <>

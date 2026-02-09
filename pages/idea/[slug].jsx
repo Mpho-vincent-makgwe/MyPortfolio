@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Navigation from "@/components/blogs/Navigation";
 import { useRouter } from "next/router";
@@ -16,6 +17,7 @@ export default function BlogSlugPage() {
     const [blogData, setBlogData] = React.useState([]);
     const [slug, setSlug] = React.useState(null);
     const [loading, setLoading] = React.useState(false);
+    const [mounted, setMounted] = React.useState(false);
 
     const blog = useAxios({
         method: "post",
@@ -24,17 +26,24 @@ export default function BlogSlugPage() {
     });
 
     React.useEffect(() => {
-        if (!router.isReady) return;
+        setMounted(true); // Set mounted to true after initial render
+        return () => setMounted(false); // Cleanup on unmount
+    }, []);
+
+    React.useEffect(() => {
+        if (!router.isReady || !mounted) return; // Check if mounted
 
         setLoading(true);
         setSlug(router.query.slug);
 
         if (blog.response !== null) {
             setBlogData(blog.response);
-            document.title = `${blogData.head} | !dea | mpho.vincetek.co.za`;
+            if (blog.response.head) {
+                document.title = `${blog.response.head} | !dea | mpho.vincetek.co.za`;
+            }
             setLoading(false);
         }
-    }, [router.isReady, router.query, blog]);
+    }, [router.isReady, router.query, blog.response, mounted]); // Added mounted to dependencies
 
     return (
         <>

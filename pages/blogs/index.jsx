@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation"; // Using main navigation for consistency
 import BlogItem from "@/components/blogs/layouts/BlogItem";

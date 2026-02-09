@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Navigation from "@/components/blogs/Navigation";
 // import Image from "next/image";
@@ -40,12 +41,17 @@ export default function Page() {
         headers: JSON.stringify({ accept: "*/*" }),
     });
 
+    const [mounted, setMounted] = React.useState(false);
+
     React.useEffect(() => {
-        document.title = "!dea - Read all my latest blogs | mpho.vincetek.co.za";
+        setMounted(true);
+    }, []);
 
-        setSelectedTopic(null);
+    React.useEffect(() => {
+        if (!router.isReady || !mounted) return;
 
-        setLoading(true);
+        setQueryTopic(router.query.topic);
+
         if (blogs.response !== null) {
             setBlogList(blogs.response);
         }
@@ -53,18 +59,11 @@ export default function Page() {
             setTopicList(topics.response);
         }
 
-        if (!router.isReady) return;
-
-        setQueryTopic(router.query.topic);
-
-        if (router.query.topic) {
-            const topicName = router.query.topic;
-            setSelectedTopic(topicName);
-
+        if (router.query.topic && filteredBlogs.response !== null) {
+            setSelectedTopic(router.query.topic);
             setBlogList(filteredBlogs.response);
         }
-        setLoading(false);
-    }, [router.isReady, router.query, blogs, topics]);
+    }, [router.isReady, router.query, blogs.response, topics.response, filteredBlogs.response, mounted]);
 
     return (
         <>
