@@ -28,6 +28,7 @@ jobs:
       run: |
         echo "📦 Installing dependencies..."
         npm install
+        npm ci
         
     - name: Build application
       run: |
