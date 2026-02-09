@@ -30,24 +30,27 @@ function Projects({ projects }) {
                     ></motion.div>
                 </div>
                 <div className="flex flex-row justify-center items-center flex-wrap gap-6 mobile:mt-[2rem] tablet:mt-[2rem] laptop:mt-[5rem] desktop:mt-[5rem]">
-                    {visibleProjects?.map((project, i) => (
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 1 }}
-                            transition={{ duration: 0.5, delay: i / 10 }}
-                            key={i}
-                        >
-                            <ProjectCard
-                                title={project.title || project.name}
-                                slug={project.repo_name || project.name}
-                                stack={project.stack || project.topics || []}
-                                overview={project.overview}
-                                links={project.links || {}}
+                    {visibleProjects?.map((project, i) => {
+                        if (!project) return null;
+                        return (
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 1 }}
+                                transition={{ duration: 0.5, delay: i / 10 }}
                                 key={i}
-                            />
-                        </motion.div>
-                    ))}
+                            >
+                                <ProjectCard
+                                    title={project.title || project.name}
+                                    slug={project.repo_name || project.name}
+                                    stack={project.stack || project.topics || []}
+                                    overview={project.overview}
+                                    links={project.links || {}}
+                                    key={i}
+                                />
+                            </motion.div>
+                        );
+                    })}
                 </div>
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
