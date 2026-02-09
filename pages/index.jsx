@@ -47,11 +47,12 @@ export default function Home({ projects, skills }) {
 
 export async function getStaticProps() {
     try {
-        const projects = await getGitHubProjects();
+        console.log("ISOLATION TEST: Skipping getGitHubProjects...");
+        // const projects = await getGitHubProjects();
         return {
             props: {
-                projects: projects || [],
-                skills: [], // Placeholder for skills
+                projects: [],
+                skills: [],
             },
             revalidate: 3600,
         };

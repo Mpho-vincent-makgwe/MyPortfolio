@@ -13,4 +13,5 @@ Error.getInitialProps = ({ res, err }) => {
     return { statusCode }
 }
 
+console.log("_ERROR: Error page triggered");
 export default Error;
