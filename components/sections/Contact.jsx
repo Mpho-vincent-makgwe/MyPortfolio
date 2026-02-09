@@ -37,7 +37,7 @@ function Contact() {
                     transition={{ duration: 0.8, delay: 0.3 }}
                     className="flex-1"
                 >
-                    <GlassCard className="h-full" hoverEffect={false}>
+                    <GlassCard className="h-full p-10" hoverEffect={false}>
                         <h3 className="text-2xl font-bold text-white mb-6">Let&apos;s Build Something Together</h3>
                         <p className="text-gray-400 text-lg mb-8 leading-relaxed">
                             I&apos;m currently open to new opportunities and interesting collaborations. Whether you have a question or just want to say hi, my inbox is always open.

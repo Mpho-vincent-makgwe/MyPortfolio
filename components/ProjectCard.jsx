@@ -7,7 +7,7 @@ import GlassCard from "./GlassCard";
 function ProjectCard({ title, slug, overview, stack, links }) {
     return (
         <GlassCard className="flex flex-col justify-between h-full min-h-[18rem] group p-0" hoverEffect={true}>
-            <Link href={`/projects/${slug}`} className="flex-1 p-6 flex flex-col">
+            <Link href={`/projects/${slug}`} className="flex-1 p-10 flex flex-col">
                 <div className="flex justify-between items-start mb-4">
                     <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors duration-300">
                         {title}
@@ -22,7 +22,7 @@ function ProjectCard({ title, slug, overview, stack, links }) {
                 </p>
             </Link>
 
-            <div className="p-6 pt-0">
+            <div className="p-10 pt-0">
                 <div className="flex flex-wrap gap-2 mb-6">
                     {stack?.slice(0, 3).map((item, i) => (
                         <span key={i} className="text-[10px] uppercase tracking-widest px-2 py-1 rounded bg-white/5 text-gray-500 border border-white/5 font-bold">

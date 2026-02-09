@@ -5,7 +5,7 @@ import GlassCard from "./GlassCard";
 
 function SkillCard({ title, skills }) {
     return (
-        <GlassCard className="flex flex-col gap-6 h-full" hoverEffect={false}>
+        <GlassCard className="flex flex-col gap-8 h-full p-10" hoverEffect={false}>
             <div className="text-xl font-bold text-white mb-2">{title}</div>
             <div className="flex flex-wrap gap-4">
                 {skills?.map((skill, i) => (

@@ -11,7 +11,7 @@ function Featured() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="relative overflow-hidden p-8 px-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl flex flex-row justify-between items-center gap-10 shadow-2xl"
+                className="relative overflow-hidden p-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl flex flex-row justify-between items-center gap-10 shadow-2xl"
             >
                 {/* Decorative background glow */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-3xl rounded-full -mr-10 -mt-10"></div>
