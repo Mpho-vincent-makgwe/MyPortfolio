@@ -121,7 +121,7 @@ jobs:
         username: ${{ secrets.SERVER_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
-        script_timeout: 10m
+        script_timeout: 60m
         script: |
           set -e
           echo "🚀 Starting deployment with timeout handling..."
