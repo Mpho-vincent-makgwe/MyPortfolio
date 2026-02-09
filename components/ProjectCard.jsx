@@ -24,15 +24,17 @@ function ProjectCard({ title, slug, overview, stack, links }) {
                 </div>
 
                 <div className="flex flex-row justify-end items-center gap-4 text-white/80">
-                    <a
-                        target="_blank"
-                        href={links.github}
-                        rel="noopener noreferrer"
-                        className="hover:text-primary transition-colors"
-                    >
-                        <GitHubIcon />
-                    </a>
-                    {links.hosted && (
+                    {links?.github && (
+                        <a
+                            target="_blank"
+                            href={links.github}
+                            rel="noopener noreferrer"
+                            className="hover:text-primary transition-colors"
+                        >
+                            <GitHubIcon />
+                        </a>
+                    )}
+                    {links?.hosted && (
                         <a
                             target="_blank"
                             href={links.hosted}

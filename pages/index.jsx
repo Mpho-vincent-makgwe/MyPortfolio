@@ -37,13 +37,27 @@ export default function Home({ projects, skills }) {
 }
 
 export async function getStaticProps() {
-    const projects = await getGitHubProjects();
-
-    return {
-        props: {
-            projects,
-            skills: [], // Placeholder for skills
-        },
-        revalidate: 3600,
-    };
+    try {
+        const projects = await getGitHubProjects();
+        return {
+            props: {
+                projects: projects || [],
+                skills: [], // Placeholder for skills
+            },
+            revalidate: 3600,
+        };
+    } catch (error) {
+        console.error("CRITICAL: Error in Home getStaticProps:", {
+            message: error.message,
+            stack: error.stack,
+            time: new Date().toISOString()
+        });
+        return {
+            props: {
+                projects: [],
+                skills: [],
+            },
+            revalidate: 60, // Revisit sooner if failed
+        };
+    }
 }

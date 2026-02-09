@@ -6,7 +6,7 @@ import Link from "next/link";
 function Projects({ projects }) {
 
     // for the sake of fratured projects, only show 3 of them
-    const visibleProjects = projects.slice(0, 3);
+    const visibleProjects = Array.isArray(projects) ? projects.slice(0, 3) : [];
 
     return (
         <section id="projects">
@@ -39,11 +39,11 @@ function Projects({ projects }) {
                             key={i}
                         >
                             <ProjectCard
-                                title={project.name} // Updated prop name from title to name based on lib/github.js
-                                slug={project.name} // Updated slug to name
-                                stack={project.topics || []} // GitHub API returns topics
+                                title={project.title || project.name}
+                                slug={project.repo_name || project.name}
+                                stack={project.stack || project.topics || []}
                                 overview={project.overview}
-                                links={project.links}
+                                links={project.links || {}}
                                 key={i}
                             />
                         </motion.div>
