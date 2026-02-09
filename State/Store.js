@@ -11,7 +11,11 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 const store = createStore(persistedReducer, applyMiddleware(thunk));
-const persistor = persistStore(store);
 
-export {persistor};
+let persistor = null;
+if (typeof window !== "undefined") {
+    persistor = persistStore(store);
+}
+
+export { persistor };
 export default store;

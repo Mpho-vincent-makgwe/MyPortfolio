@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
@@ -203,7 +204,7 @@ function About() {
                         height={600}
                         priority
                         className="w-[100%] border-[2px] mt-5 border-solid border-white rounded-[5px]"
-                        // className="w-[100%] border-[2px] mt-5 border-solid border-white rounded-[5px] mobile:block tablet:block laptop:hidden desktop:hidden"
+                    // className="w-[100%] border-[2px] mt-5 border-solid border-white rounded-[5px] mobile:block tablet:block laptop:hidden desktop:hidden"
                     />
                 </motion.div>
             </div>

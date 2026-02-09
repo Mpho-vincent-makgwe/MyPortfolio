@@ -1,3 +1,4 @@
+import React from "react";
 console.log("_APP: Loading globals and state...");
 import "../styles/globals.css";
 import { Provider } from "react-redux";
@@ -6,6 +7,20 @@ import store, { persistor } from "@/State/Store";
 
 export default function App({ Component, pageProps }) {
     console.log("_APP: Rendering App component...");
+    const [mounted, setMounted] = React.useState(false);
+
+    React.useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!persistor || !mounted) {
+        return (
+            <Provider store={store}>
+                <Component {...pageProps} />
+            </Provider>
+        );
+    }
+
     return (
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>

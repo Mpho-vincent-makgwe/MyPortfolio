@@ -1,4 +1,5 @@
 "use client";
+"use client";
 import React, { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation"; // Using main navigation for consistency
 import BlogItem from "@/components/blogs/layouts/BlogItem";
@@ -14,8 +15,14 @@ export default function BlogIndex({ blogs, topics }) {
     const [selectedTopic, setSelectedTopic] = useState(null);
     const [filteredBlogs, setFilteredBlogs] = useState(blogs);
     const [topicsDropdown, setTopicsDropdown] = useState(false);
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (!mounted) return;
         if (router.query.topic) {
             const topicName = router.query.topic;
             setSelectedTopic(topicName);
@@ -24,7 +31,9 @@ export default function BlogIndex({ blogs, topics }) {
             setSelectedTopic(null);
             setFilteredBlogs(blogs);
         }
-    }, [router.query.topic, blogs]);
+    }, [router.query.topic, blogs, mounted]);
+
+    if (!mounted) return null;
 
     return (
         <>

@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import styles from "@/styles/index.module.css";
 import { motion } from "framer-motion";
@@ -13,6 +14,11 @@ import Idea from "@/components/Logo/Idea";
 function Home() {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const projectData = useAxios({
         method: "post",
@@ -21,13 +27,16 @@ function Home() {
     });
 
     useEffect(() => {
+        if (!mounted) return;
         setTitle();
         setLoading(true);
         if (projectData.response !== null) {
             setProjects(projectData.response);
             setLoading(false);
         }
-    }, [projectData]);
+    }, [projectData, mounted]);
+
+    if (!mounted) return null;
 
     const setTitle = () => {
         document.title = "Projects | mpho.vincetek.co.za";
