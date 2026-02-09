@@ -5,14 +5,13 @@ import dynamic from "next/dynamic";
 import Meta from "@/components/Meta";
 import styles from "@/styles/index.module.css";
 
-// Dynamically import sections with SSR safe guards
-const Navigation = dynamic(() => import("@/components/Navigation"), { ssr: false });
-const Hero = dynamic(() => import("@/components/sections/Hero"), { ssr: false });
-const About = dynamic(() => import("@/components/sections/About"), { ssr: false });
-const Projects = dynamic(() => import("@/components/sections/Projects"), { ssr: false });
-const Skills = dynamic(() => import("@/components/sections/Skills"), { ssr: false });
-const Contact = dynamic(() => import("@/components/sections/Contact"), { ssr: false });
-const Featured = dynamic(() => import("@/components/sections/Featured"), { ssr: false });
+import Navigation from "@/components/Navigation";
+import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
+import Projects from "@/components/sections/Projects";
+import Skills from "@/components/sections/Skills";
+import Contact from "@/components/sections/Contact";
+import Featured from "@/components/sections/Featured";
 
 export default function Home({ projects, skills }) {
     const [mounted, setMounted] = React.useState(false);
