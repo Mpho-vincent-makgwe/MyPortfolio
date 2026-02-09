@@ -74,7 +74,7 @@ function Hero() {
                         className="mt-12"
                     >
                         <Link
-                            href="/M.V Makgwe_Resume(Full-Stack) (3).pdf"
+                            href="/M.V Makgwe_Resume(J-Full-Stack-202601).pdf"
                             target="_blank"
                             className="text-gray-400 hover:text-white text-sm font-medium border-b border-gray-800 hover:border-white transition-all pb-1"
                         >
