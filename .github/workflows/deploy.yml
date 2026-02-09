@@ -33,37 +33,31 @@ jobs:
     - name: Build application
       run: |
         echo "🏗️ Building application..."
-        echo "📁 Current directory structure:"
-        ls -la
-        echo "📁 Checking for src directory:"
-        ls -la src/ || echo "No src directory found"
-        
-        # Build with explicit configuration for src directory
-        if [ -d "src/app" ] || [ -d "src/pages" ]; then
-          echo "🔧 Detected src directory structure - building with custom config"
-          npm run build
-        else
-          echo "🔧 Building standard Next.js app"
-          npm run build
-        fi
+        npm run build
         
     - name: Create deployment package
       run: |
         echo "📦 Creating deployment package..."
         mkdir -p deployment-package
         
-        # Copy ALL necessary files including src directory
+        # Copy ALL necessary directories
         cp -r .next/ deployment-package/
+        cp -r data/ deployment-package/ 2>/dev/null || true
         cp -r public/ deployment-package/ 2>/dev/null || true
-        cp -r src/ deployment-package/ 2>/dev/null || true
+        cp -r pages/ deployment-package/ 2>/dev/null || true
+        cp -r components/ deployment-package/ 2>/dev/null || true
+        cp -r styles/ deployment-package/ 2>/dev/null || true
+        cp -r lib/ deployment-package/ 2>/dev/null || true
+        cp -r State/ deployment-package/ 2>/dev/null || true
+        cp -r hooks/ deployment-package/ 2>/dev/null || true
+        
+        # Copy configuration files
         cp package.json deployment-package/
         cp package-lock.json deployment-package/
         cp next.config.js deployment-package/ 2>/dev/null || true
         cp ecosystem.config.js deployment-package/ 2>/dev/null || true
         cp server.js deployment-package/ 2>/dev/null || true
         cp .env deployment-package/ 2>/dev/null || true
-        # REMOVE THIS LINE ↓
-        # cp -r node_modules/ deployment-package/ 2>/dev/null || true  # ← DELETE THIS LINE
         
         echo "📁 Package contents:"
         ls -la deployment-package/
