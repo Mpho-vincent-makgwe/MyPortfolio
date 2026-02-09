@@ -32,10 +32,8 @@ export default async function getTopics(req, res) {
         // try to get the cached data
         const apiResult = await getDataFromCacheOrApi("topicData", async () => {
             // read and parse contents of the index.json file under topicData
-            let topics = await fs.promises.readFile(
-                path.join(process.cwd(), "/data/blogData/index.json"),
-                "utf-8"
-            );
+            const dataPath = path.join(process.cwd(), "data", "blogData", "index.json");
+            let topics = await fs.promises.readFile(dataPath, "utf-8");
             topics = JSON.parse(topics);
 
             if (topics.length === 0) {
@@ -69,6 +67,12 @@ export default async function getTopics(req, res) {
         // otherwise pass the data with 200 status code
         return res.status(200).json(apiResult);
     } catch (error) {
+        console.error("API Error in getTopics:", {
+            error: error.message,
+            stack: error.stack,
+            cwd: process.cwd(),
+            path: path.join(process.cwd(), "data", "blogData", "index.json")
+        });
         return res.status(500).send({
             success: false,
             message: "Internal Server Error.",

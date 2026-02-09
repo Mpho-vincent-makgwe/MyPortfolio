@@ -51,9 +51,9 @@ export default async function getProject(req, res) {
             // declare a result array and filter the result which is requested by the user based on the slug
             let result = []
             result = data.filter(item => item.name === req.query.slug);
-            
+
             // if the required data is not found, try to get it from the private repo from the personal account. If the data is found, add it to result array otherwise return a 404 error
-            if (result.length === 0){
+            if (result.length === 0) {
 
                 const privateRepoResponse = await axios.get(
                     `${API_URL}/repos/${ACCOUNT_PERSONAL}/${req.query.slug}`,
@@ -64,8 +64,8 @@ export default async function getProject(req, res) {
                     }
                 );
                 const privateRepoData = privateRepoResponse.data;
-                
-                if(privateRepoData.name !== req.query.slug){
+
+                if (privateRepoData.name !== req.query.slug) {
                     return {
                         status: 404,
                         success: false,
@@ -76,7 +76,8 @@ export default async function getProject(req, res) {
             }
 
             // read and parse contents of the index.json file under projectData
-            let projects = await fs.promises.readFile(path.join(process.cwd(), "/data/projectData/index.json"),"utf-8");
+            const dataPath = path.join(process.cwd(), "data", "projectData", "index.json");
+            let projects = await fs.promises.readFile(dataPath, "utf-8");
             projects = JSON.parse(projects);
 
             const projectData = []
@@ -97,16 +98,23 @@ export default async function getProject(req, res) {
             // return the customized data
             return projectData[0];
         });
-        
+
         // get the data from the apiResult function. If it turns to be a 404 error, pass the error,
-        if(apiResult.status === 404) {
-            const {success, message} = apiResult;
-            return res.status(apiResult.status).send({success,message});
+        if (apiResult.status === 404) {
+            const { success, message } = apiResult;
+            return res.status(apiResult.status).send({ success, message });
         }
         // otherwise pass the data with 200 status code
         return res.status(200).json(apiResult);
 
     } catch (error) {
+        console.error("API Error in getProject:", {
+            error: error.message,
+            stack: error.stack,
+            cwd: process.cwd(),
+            path: path.join(process.cwd(), "data", "projectData", "index.json"),
+            slug: req.query.slug
+        });
         return res.status(500).send({
             success: false,
             message: "Internal Server Error.",

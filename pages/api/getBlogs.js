@@ -33,10 +33,11 @@ export default async function getBlogs(req, res) {
         const apiResult = await getDataFromCacheOrApi('blogData', async () => {
 
             // read and parse contents of the index.json file under blogData
-            let blogs = await fs.promises.readFile(path.join(process.cwd(), "/data/blogData/index.json"),"utf-8");
+            const dataPath = path.join(process.cwd(), "data", "blogData", "index.json");
+            let blogs = await fs.promises.readFile(dataPath, "utf-8");
             blogs = JSON.parse(blogs);
 
-            if(blogs.length === 0){
+            if (blogs.length === 0) {
                 return {
                     status: 404,
                     success: false,
@@ -49,17 +50,23 @@ export default async function getBlogs(req, res) {
             // return the customized data
             return blogs;
         });
-        
+
         // get the data from the apiResult function. If it turns to be a 404 error, pass the error,
-        if(apiResult.status === 404) {
-            const {success, message} = apiResult;
-            return res.status(apiResult.status).send({success,message});
+        if (apiResult.status === 404) {
+            const { success, message } = apiResult;
+            return res.status(apiResult.status).send({ success, message });
         }
 
         // otherwise pass the data with 200 status code
         return res.status(200).json(apiResult);
 
     } catch (error) {
+        console.error("API Error in getBlogs:", {
+            error: error.message,
+            stack: error.stack,
+            cwd: process.cwd(),
+            path: path.join(process.cwd(), "data", "blogData", "index.json")
+        });
         return res.status(500).send({
             success: false,
             message: "Internal Server Error.",
