@@ -1,61 +1,55 @@
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import Idea from "../Logo/Idea";
 import Link from "next/link";
 
 function Featured() {
     return (
-        <section id="featured">
-            <div className="smallMobile:px-3 mobile:px-8 tablet:px-12 laptop:px-16 desktop:px-20 largeDesktop:px-20 bg-white rounded-2xl text-black h-40 flex flex-row justify-between items-center gap-10 mobile:mt-[2rem] tablet:mt-[2rem] laptop:mt-[5rem] desktop:mt-[5rem]">
-                <motion.p
-                    initial={{
-                        opacity: 0,
-                        y: 10,
-                    }}
-                    whileInView={{
-                        opacity: 1,
-                        y: 0,
-                    }}
-                    viewport={{
-                        once: true,
-                        amount: 1,
-                    }}
-                    transition={{
-                        duration: 0.5,
-                        delay: 0.6,
-                    }}
-                    className="font-extrabold text-xl"
-                >
-                    <span className="smallMobile:hidden mobile:hidden tablet:flex laptop:flex desktop:flex largeDesktop:flex flex-row justify-start items-center gap-3 flex-wrap">
-                        Checkout <Idea /> to read my latest blogs!
-                    </span>
-                    <span className="smallMobile:flex mobile:flex tablet:hidden laptop:hidden desktop:hidden largeDesktop:hidden">Read my latest blogs!</span>
-                </motion.p>
+        <section id="featured" className="py-20">
+            <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="relative overflow-hidden p-8 px-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl flex flex-row justify-between items-center gap-10 shadow-2xl"
+            >
+                {/* Decorative background glow */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-3xl rounded-full -mr-10 -mt-10"></div>
+
+                <div className="relative z-10 flex-1">
+                    <motion.h2
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="text-white text-2xl font-bold mb-2 flex items-center gap-3"
+                    >
+                        Stay Updated <span className="text-secondary opacity-50 text-base font-normal">| Latest Insights</span>
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        className="text-gray-400 max-w-lg"
+                    >
+                        I regularly share my thoughts on software engineering, modern web technologies, and the future of full-stack development.
+                    </motion.p>
+                </div>
+
                 <motion.div
-                    initial={{
-                        opacity: 0,
-                        y: 10,
-                    }}
-                    whileInView={{
-                        opacity: 1,
-                        y: 0,
-                    }}
-                    viewport={{
-                        once: true,
-                        amount: 1,
-                    }}
-                    transition={{
-                        duration: 0.5,
-                        delay: 0.8,
-                    }}
-                    className="pr-10"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="relative z-10"
                 >
-                    <Link href={"/blogs"}>
-                        <Idea className="smallMobile:scale-105 mobile:scale-105 tablet:scale-110 laptop:scale-150 desktop:scale-[190%] largeDesktop:scale-[200%]" />
+                    <Link href={"/blogs"} className="group flex flex-col items-center gap-2">
+                        <div className="p-4 bg-white/10 rounded-2xl group-hover:bg-white/20 transition-all border border-white/5 shadow-inner">
+                            <Idea className="scale-150 tablet:scale-[200%] laptop:scale-[250%]" />
+                        </div>
+                        <span className="text-xs font-bold text-secondary uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">
+                            View Blogs
+                        </span>
                     </Link>
                 </motion.div>
-            </div>
+            </motion.div>
         </section>
     );
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -8,152 +7,130 @@ import { motion } from "framer-motion";
 
 function Hero() {
     return (
-        <section className="h-full min-h-screen flex flex-col justify-center">
-            <div className="flex flex-col justify-between items-start mobile:mt-0 tablet:mt-0 laptop:mt-[2rem] desktop:mt-[2rem] mobile:mx-auto tablet:mx-auto laptop:mx-[50px] desktop:mx-[50px]">
-                <div className="flex flex-row justify-center items-center mobile:block tablet:block laptop:flex desktop:flex w-full">
-                    <div className="flex flex-col mobile:justify-center tablet:justify-center laptop:justify-start desktop:justify-start mobile:h-[100vh] tablet:h-[100vh] laptop:h-auto desktop:h-auto mobile:items-center tablet:items-center laptop:items-start desktop:items-start mobile:w-[100vw] tablet:w-[100vw] laptop:w-[50vw] desktop:w-[50vw]">
+        <section className="relative h-full min-h-[90vh] flex flex-col justify-center py-20 px-4 laptop:px-20 overflow-hidden">
+            <div className="flex flex-col laptop:flex-row items-center justify-between gap-12">
+                <div className="flex-1 flex flex-col items-center laptop:items-start text-center laptop:text-left z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.1 }}
+                        className="inline-block px-4 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-bold tracking-widest uppercase mb-6"
+                    >
+                        Welcome to my universe
+                    </motion.div>
+
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="text-4xl tablet:text-5xl laptop:text-7xl font-extrabold text-white leading-tight mb-4"
+                    >
+                        Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary animate-gradient-x">Mpho Vincent</span>
+                    </motion.h1>
+
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.3 }}
+                        className="text-xl tablet:text-2xl laptop:text-3xl font-medium text-gray-400 mb-8"
+                    >
+                        Crafting <span className="text-white">exceptional</span> digital experiences
+                    </motion.h2>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="text-gray-500 max-w-lg mb-10 text-lg leading-relaxed shadow-sm"
+                    >
+                        A dedicated Full Stack Developer specializing in building high-performance, scalable web applications with a focus on modern user experience.
+                    </motion.p>
+
+                    <div className="flex flex-col tablet:flex-row items-center gap-6">
                         <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1, delay: 0.1, type: "spring" }}
-                            className="flex flex-row justify-center items-center text-[2.5rem] font-extrabold text-white"
-                        >
-                            Hello World!
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1, delay: 0.2, type: "spring" }}
-                            className="flex flex-row justify-center items-center text-secondary text-[1.5rem] font-extrabold"
-                        >
-                            My Name is
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1, delay: 0.3, type: "spring" }}
-                            className="flex flex-row justify-center items-center text-primary text-[3rem] font-extrabold text-center"
-                        >
-                            Mpho Vincent Makgwe
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1, delay: 0.4, type: "spring" }}
-                            className="flex flex-row justify-center items-center text-[2rem] font-extrabold text-center text-accent"
-                        >
-                            I&apos;m a Full Stack Developer
-                        </motion.div>
-
-                        {/* Buttons & Socials */}
-                        <div className="flex justify-start pt-[1.5rem] mobile:flex-col mobile:gap-5 mobile:items-center tablet:flex-col tablet:gap-5 tablet:items-start laptop:flex-row laptop:gap-0 laptop:items-center desktop:flex-row desktop:gap-0 desktop:items-center">
-                            <motion.div
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 1, delay: 0.5, type: "spring" }}
-                                className="flex flex-row justify-center items-center w-full px-[1rem] py-[0.50rem] bg-secondary text-black rounded-full font-bold hover:cursor-pointer hover:bg-white transition-colors duration-300"
-                            >
-                                <Link href={"mailto:mpho.makgwe@vincetek.co.za"}>
-                                    Contact me
-                                </Link>
-                            </motion.div>
-
-                            <motion.div
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 1, delay: 0.6, type: "spring" }}
-                                className="w-[2px] h-[50px] bg-white/20 mx-[3rem] mobile:hidden tablet:hidden laptop:block desktop:block"
-                            ></motion.div>
-
-                            <div className="flex flex-row justify-evenly items-center mobile:w-[100%] tablet:w-[100%] laptop:w-[50%] desktop:w-[50%] gap-5">
-                                <motion.div
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 1, delay: 0.7, type: "spring" }}
-                                    className="flex flex-row justify-center items-center w-[3rem] h-[3rem] rounded-full bg-white/10 hover:bg-white/20 transition-all"
-                                >
-                                    <Link
-                                        href={"https://www.linkedin.com/in/mpho-vincent-makgwe-1ab386199/"}
-                                        target={"_blank"}
-                                        className="text-secondary"
-                                    >
-                                        <LinkedInIcon className="scale-[150%]" />
-                                    </Link>
-                                </motion.div>
-
-                                <motion.div
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 1, delay: 1, type: "spring" }}
-                                    className="flex flex-row justify-center items-center w-[3rem] h-[3rem] rounded-full bg-white/10 hover:bg-white/20 transition-all"
-                                >
-                                    <Link
-                                        href={"https://www.instagram.com/king_vince014_rsa/"}
-                                        target={"_blank"}
-                                        className="text-secondary"
-                                    >
-                                        <InstagramIcon className="scale-[150%]" />
-                                    </Link>
-                                </motion.div>
-
-                                <motion.div
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 1, delay: 1.2, type: "spring" }}
-                                    className="flex flex-row justify-center items-center w-[3rem] h-[3rem] rounded-full bg-white/10 hover:bg-white/20 transition-all"
-                                >
-                                    <Link
-                                        className="text-secondary"
-                                        target={"_blank"}
-                                        href={"https://github.com/Mpho-vincent-makgwe"}
-                                    >
-                                        <GitHubIcon className="scale-[150%]" />
-                                    </Link>
-                                </motion.div>
-                            </div>
-                        </div>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1, delay: 1.4, type: "spring" }}
-                            className="flex flex-row justify-start items-center mt-[3rem]"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.5, delay: 0.5 }}
                         >
                             <Link
-                                className="px-[0.75rem] py-[0.50rem] border border-secondary text-secondary font-bold rounded-full hover:cursor-pointer hover:bg-secondary hover:text-black transition-all duration-300"
-                                target={"_blank"}
-                                href={"/M.V Makgwe_Resume(Full-Stack) (3).pdf"}
+                                href="mailto:mpho.makgwe@vincetek.co.za"
+                                className="px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-primary/80 transition-all shadow-lg shadow-primary/25 active:scale-95"
                             >
-                                Download Resume
+                                Get In Touch
                             </Link>
                         </motion.div>
+
+                        <div className="flex items-center gap-4">
+                            <SocialIcon href="https://github.com/Mpho-vincent-makgwe" icon={<GitHubIcon />} delay={0.6} />
+                            <SocialIcon href="https://www.linkedin.com/in/mpho-vincent-makgwe-1ab386199/" icon={<LinkedInIcon />} delay={0.7} />
+                            <SocialIcon href="https://www.instagram.com/king_vince014_rsa/" icon={<InstagramIcon />} delay={0.8} />
+                        </div>
                     </div>
 
-                    <div className="flex flex-col justify-center items-center w-[50vw] mobile:hidden tablet:hidden laptop:block desktop:block relative">
-                        <motion.div
-                            initial={{ opacity: 0, y: -50 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 2, delay: 0.2, type: "spring" }}
-                            className="absolute right-0 top-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-pulse"
-                        ></motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 2, delay: 0.4, type: "spring" }}
-                            className="absolute right-20 bottom-20 w-40 h-40 bg-secondary/20 rounded-full blur-2xl animate-pulse"
-                        ></motion.div>
-                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 1 }}
+                        className="mt-12"
+                    >
+                        <Link
+                            href="/M.V Makgwe_Resume(Full-Stack) (3).pdf"
+                            target="_blank"
+                            className="text-gray-400 hover:text-white text-sm font-medium border-b border-gray-800 hover:border-white transition-all pb-1"
+                        >
+                            Download Resume
+                        </Link>
+                    </motion.div>
                 </div>
+
                 <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 1.8, type: "spring" }}
-                    className="w-[100%] flex-row justify-center items-center mt-[3rem] mobile:hidden tablet:hidden laptop:flex desktop:flex text-gray-400 animate-bounce"
+                    initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                    transition={{ duration: 1.2, delay: 0.2, type: "spring" }}
+                    className="relative flex-1 hidden laptop:flex justify-center items-center"
                 >
-                    <a href="#aboutme">Scroll Down</a>
+                    <div className="relative w-80 h-80 desktop:w-96 desktop:h-96">
+                        {/* Abstract premium shape */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent opacity-20 rounded-full blur-[80px] animate-pulse"></div>
+                        <div className="absolute inset-8 bg-white/5 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] rotate-6"></div>
+                        <div className="absolute inset-8 bg-white/5 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] -rotate-3 overflow-hidden group">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                            <div className="w-full h-full flex items-center justify-center">
+                                <span className="text-white/10 text-9xl font-black select-none tracking-tighter">VT</span>
+                            </div>
+                        </div>
+                    </div>
                 </motion.div>
             </div>
+
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 2 }}
+                className="absolute bottom-4 left-1/2 -translate-x-1/2 hidden laptop:flex flex-col items-center gap-2 text-gray-600"
+            >
+                <span className="text-[10px] uppercase tracking-widest font-bold">Explore</span>
+                <div className="w-[1px] h-12 bg-gradient-to-b from-gray-800 to-transparent"></div>
+            </motion.div>
         </section>
+    );
+}
+
+function SocialIcon({ href, icon, delay }) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay, type: "spring" }}
+        >
+            <Link
+                href={href}
+                target="_blank"
+                className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-gray-400 hover:text-primary hover:border-primary/40 hover:bg-white/10 transition-all active:scale-90"
+            >
+                {icon}
+            </Link>
+        </motion.div>
     );
 }
 

@@ -4,65 +4,63 @@ import ProjectCard from "../ProjectCard";
 import Link from "next/link";
 
 function Projects({ projects }) {
-
-    // for the sake of fratured projects, only show 3 of them
     const visibleProjects = Array.isArray(projects) ? projects.slice(0, 3) : [];
 
     return (
-        <section id="projects">
-            <div className="flex flex-col justify-center items-center gap-10">
-                <div className="flex flex-row justify-between items-center mt-[7rem] mobile:text-[1.5rem] tablet:text-[1.5rem] laptop:text-[3rem] desktop:text-[3rem] font-bold w-[100%]">
-                    <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 1 }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        className="inline text-white"
+        <section id="projects" className="py-24">
+            <div className="flex flex-col gap-16">
+                <div className="flex flex-row justify-between items-center gap-4">
+                    <motion.h2
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="text-white text-3xl laptop:text-5xl font-bold whitespace-nowrap"
                     >
-                        Featured projects
-                    </motion.div>
+                        Featured Projects
+                    </motion.h2>
                     <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 1 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                        className="h-[2px] mobile:w-[25%] tablet:w-[30%] laptop:w-[50%] desktop:w-[50%] inline-block bg-secondary"
+                        initial={{ opacity: 0, scaleX: 0 }}
+                        whileInView={{ opacity: 1, scaleX: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: 0.2 }}
+                        className="h-[1px] flex-1 bg-gradient-to-r from-primary/50 to-transparent origin-left"
                     ></motion.div>
                 </div>
-                <div className="flex flex-row justify-center items-center flex-wrap gap-6 mobile:mt-[2rem] tablet:mt-[2rem] laptop:mt-[5rem] desktop:mt-[5rem]">
-                    {visibleProjects?.map((project, i) => {
-                        if (!project) return null;
-                        return (
-                            <motion.div
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 1 }}
-                                transition={{ duration: 0.5, delay: i / 10 }}
-                                key={i}
-                            >
-                                <ProjectCard
-                                    title={project.title || project.name}
-                                    slug={project.repo_name || project.name}
-                                    stack={project.stack || project.topics || []}
-                                    overview={project.overview}
-                                    links={project.links || {}}
-                                    key={i}
-                                />
-                            </motion.div>
-                        );
-                    })}
+
+                <div className="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-8">
+                    {visibleProjects.map((project, i) => (
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: i * 0.1 }}
+                            key={project.repo_name || project.name || i}
+                        >
+                            <ProjectCard
+                                title={project.title || project.name}
+                                slug={project.repo_name || project.name}
+                                stack={project.stack || project.topics || []}
+                                overview={project.overview}
+                                links={project.links || {}}
+                            />
+                        </motion.div>
+                    ))}
                 </div>
+
                 <motion.div
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 1 }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="flex justify-center"
                 >
                     <Link
-                        className="flex flex-row justify-center items-center border border-secondary text-secondary hover:bg-secondary hover:text-black transition-all duration-300 py-3 px-10 rounded-full font-bold"
+                        className="group flex items-center gap-3 px-10 py-4 rounded-full border border-white/10 bg-white/5 text-white font-bold hover:bg-primary transition-all shadow-xl hover:shadow-primary/20 active:scale-95"
                         href={"/projects"}
                     >
-                        See all
+                        See All Projects
+                        <span className="group-hover:translate-x-1 transition-transform">→</span>
                     </Link>
                 </motion.div>
             </div>

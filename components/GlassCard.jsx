@@ -1,24 +1,23 @@
 import React from "react";
-import styled from "styled-components";
 import { motion } from "framer-motion";
 
 const GlassCard = ({ children, className = "", hoverEffect = true }) => {
     return (
         <motion.div
             className={`
-        backdrop-blur-md 
-        bg-white/10 
-        border border-white/20 
-        rounded-xl 
-        shadow-lg 
-        p-6 
-        ${hoverEffect ? "hover:bg-white/20 hover:scale-[1.02] transition-all duration-300" : ""}
-        ${className}
-      `}
+                backdrop-blur-xl 
+                bg-white/5 
+                border border-white/10 
+                rounded-2xl 
+                shadow-2xl 
+                overflow-hidden
+                ${hoverEffect ? "hover:bg-white/10 hover:border-white/20 transition-all duration-500" : ""}
+                ${className}
+            `}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
         >
             {children}
         </motion.div>
