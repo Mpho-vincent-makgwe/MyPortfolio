@@ -6,22 +6,27 @@ import axios from "axios";
 const useAxios = ({ url, method, body = null, headers = null }) => {
     const [response, setResponse] = useState(null);
     const [error, setError] = useState("");
-    
+
     useEffect(() => {
         fetchData();
     }, [method, url, body, headers]);
 
     const fetchData = () => {
-        axios[method](url,
-            JSON.parse(headers),
-            JSON.parse(body)
-        ).then((res) => {
+        const config = {
+            headers: headers ? JSON.parse(headers) : {}
+        };
+
+        const axiosCall = method.toLowerCase() === 'get'
+            ? axios.get(url, config)
+            : axios[method](url, body ? JSON.parse(body) : null, config);
+
+        axiosCall.then((res) => {
             setResponse(res.data);
         })
-        .catch((err) => {
-            setError(err);
-        })
-        .finally(() => {});
+            .catch((err) => {
+                setError(err);
+            })
+            .finally(() => { });
     };
 
     return {

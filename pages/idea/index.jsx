@@ -24,24 +24,24 @@ export default function Page() {
     const [queryTopic, setQueryTopic] = React.useState(null);
 
     const blogs = useAxios({
-        method: "get",
+        method: "post",
         url: "/api/getBlogs",
         headers: JSON.stringify({ accept: "*/*" }),
     });
     const topics = useAxios({
-        method: "get",
+        method: "post",
         url: "/api/getTopics",
         headers: JSON.stringify({ accept: "*/*" }),
     });
 
     const filteredBlogs = useAxios({
-        method: "get",
+        method: "post",
         url: `/api/getFilteredBlogs?topic=${queryTopic}`,
         headers: JSON.stringify({ accept: "*/*" }),
     });
 
     React.useEffect(() => {
-        document.title = "!dea - Read all my latest blogs | armaancodes.com";
+        document.title = "!dea - Read all my latest blogs | mpho.vincetek.co.za";
 
         setSelectedTopic(null);
 
@@ -52,11 +52,11 @@ export default function Page() {
         if (topics.response !== null) {
             setTopicList(topics.response);
         }
-        
+
         if (!router.isReady) return;
-        
+
         setQueryTopic(router.query.topic);
-        
+
         if (router.query.topic) {
             const topicName = router.query.topic;
             setSelectedTopic(topicName);
@@ -69,12 +69,12 @@ export default function Page() {
     return (
         <>
             <Meta
-                title={"!dea | armaancodes.com"}
-                seoTitle={"!dea | armaancodes.com"}
-                seoURL={"https://www.armaancodes.com/idea"}
-                keywords={"web blogs, armaancodes blogs, armaancodes.com blogs, programming blogs, latest blogs, armaan singh jaj software developer blogs, calgary blogs, idea blogs, latest idea blogs, armaancodes.com idea blogs"}
-                description={"On Idea blogs encourages learning. Idea blogs present you new fresh blogs on plathora of topics. Read latest blogs on armaancodes.com/idea"}
-                seoDescription={"On Idea blogs encourages learning. Idea blogs present you new fresh blogs on plathora of topics. Read latest blogs on armaancodes.com/idea"}
+                title={"!dea | mpho.vincetek.co.za"}
+                seoTitle={"!dea | mpho.vincetek.co.za"}
+                seoURL={"https://mpho.vincetek.co.za/idea"}
+                keywords={"web blogs, vincetek blogs, vincetek.co.za blogs, programming blogs, latest blogs, mpho vincent makgwe software developer blogs, idea blogs, latest idea blogs"}
+                description={"On Idea blogs encourages learning. Idea blogs present you new fresh blogs on plathora of topics. Read latest blogs on mpho.vincetek.co.za/idea"}
+                seoDescription={"On Idea blogs encourages learning. Idea blogs present you new fresh blogs on plathora of topics. Read latest blogs on mpho.vincetek.co.za/idea"}
                 seoImage={"https://github.com/armaanjaj/portfolio_v2/assets/113659942/d9453b3c-5259-453d-9320-6ccbbeca3a04"}
                 twitterCreator={"https://github.com/armaanjaj/portfolio_v2/assets/113659942/d9453b3c-5259-453d-9320-6ccbbeca3a04"}
                 theme="#C670DF"
@@ -152,9 +152,8 @@ export default function Page() {
                                 </div>
 
                                 <div
-                                    className={`py-2 flex-row justify-start items-center flex-wrap gap-3 ${
-                                        !topicsDropdown ? "hidden" : "flex"
-                                    } tablet:hidden laptop:hidden desktop:hidden largeDesktop:hidden`}
+                                    className={`py-2 flex-row justify-start items-center flex-wrap gap-3 ${!topicsDropdown ? "hidden" : "flex"
+                                        } tablet:hidden laptop:hidden desktop:hidden largeDesktop:hidden`}
                                 >
                                     {topicList.map((topic) => (
                                         <TopicItem

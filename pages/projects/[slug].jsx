@@ -21,7 +21,7 @@ function SlugPage() {
     const [loading, setLoading] = useState(false);
 
     const projectData = useAxios({
-        method: "get",
+        method: "post",
         url: `/api/getProject?slug=${slug}`,
         headers: JSON.stringify({ accept: "*/*" }),
     });
@@ -41,22 +41,9 @@ function SlugPage() {
     return (
         <>
             <Meta
-                title={
-                    projectDetails?.title
-                        ? projectDetails.title + " | Projects"
-                        : "Projects"
-                }
-                seoTitle={
-                    projectDetails?.title
-                        ? projectDetails.title + " | Projects"
-                        : "Projects"
-                }
-                description="Check out all web or mobile application projects on armaancodes.com."
-                seoDescription="Check out all web or mobile application projects on armaancodes.com."
-                seoURL={
-                    "https://www.armaancodes.com/projects" +
-                    `/${projectDetails.title}`
-                }
+                title={`${slug} | mpho.vincetek.co.za`}
+                seoTitle={`${slug} | mpho.vincetek.co.za`}
+                seoURL={"https://mpho.vincetek.co.za/projects/" + slug}
             />
             <div className="bg-[#08001A] min-h-screen pt-10">
                 <div className={styles.container}>
@@ -272,7 +259,7 @@ function SlugPage() {
                                         <div>
                                             {projectDetails.timeline?.endDate
                                                 ? projectDetails.timeline
-                                                      .endDate
+                                                    .endDate
                                                 : "Present"}
                                         </div>
                                     </div>
@@ -337,13 +324,13 @@ function SlugPage() {
                                     )}
                                     {(projectDetails.links?.hosted ??
                                         false) && (
-                                        <Link
-                                            target="_blank"
-                                            href={projectDetails.links.hosted}
-                                        >
-                                            <LinkIcon />
-                                        </Link>
-                                    )}
+                                            <Link
+                                                target="_blank"
+                                                href={projectDetails.links.hosted}
+                                            >
+                                                <LinkIcon />
+                                            </Link>
+                                        )}
                                 </div>
                             </motion.div>
                         </div>

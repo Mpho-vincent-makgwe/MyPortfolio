@@ -22,8 +22,8 @@ async function getDataFromCacheOrApi(cacheKey, apiCall) {
 }
 
 export default async function getBlogs(req, res) {
-    // check if the request method if GET, if otherwise return error message
-    if (req.method !== "GET") {
+    // check if the request method if GET or POST
+    if (req.method !== "GET" && req.method !== "POST") {
         return res.status(405).json({ message: "Method Not Allowed" });
     }
 

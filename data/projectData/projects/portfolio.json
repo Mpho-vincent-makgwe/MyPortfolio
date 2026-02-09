@@ -1,6 +1,6 @@
 {
     "title": "Portfolio",
-    "slug":"portfolio",
+    "slug": "portfolio",
     "overview": "This is the new version of my portfolio website created using Next.js framework.",
     "type": "Website",
     "timeline": {
@@ -11,16 +11,19 @@
         "name": "Personal project"
     },
     "stack": [
-        "Next.js", "React.js", "Node.js", "Tailwind"
+        "Next.js",
+        "React.js",
+        "Node.js",
+        "Tailwind"
     ],
     "links": {
         "github": "https://github.com/armaanjaj/portfolio_v2",
-        "hosted": "https://www.armaancodes.com/"
+        "hosted": "https://mpho.vincetek.co.za/"
     },
-    "images":[
+    "images": [
         {
-            "path":"/projects/portfolio/home.png",
-            "alt":"Image showing the home page of the portfolio website."
+            "path": "/projects/portfolio/home.png",
+            "alt": "Image showing the home page of the portfolio website."
         }
     ]
 }

@@ -18,7 +18,7 @@ export default function BlogSlugPage() {
     const [loading, setLoading] = React.useState(false);
 
     const blog = useAxios({
-        method: "get",
+        method: "post",
         url: `/api/getBlog?slug=${slug}`,
         headers: JSON.stringify({ accept: "*/*" }),
     });
@@ -31,7 +31,7 @@ export default function BlogSlugPage() {
 
         if (blog.response !== null) {
             setBlogData(blog.response);
-            document.title = `${blogData.head} | !dea | armaancodes.com`;
+            document.title = `${blogData.head} | !dea | mpho.vincetek.co.za`;
             setLoading(false);
         }
     }, [router.isReady, router.query, blog]);
@@ -39,12 +39,12 @@ export default function BlogSlugPage() {
     return (
         <>
             <Meta
-                title={"!dea | armaancodes.com"}
-                seoTitle={"!dea | armaancodes.com"}
-                seoURL={"https://www.armaancodes.com/idea"}
-                keywords={"web blogs, armaancodes blogs, armaancodes.com blogs, programming blogs, latest blogs, armaan singh jaj software developer blogs, calgary blogs, idea blogs, latest idea blogs, armaancodes.com idea blogs"}
-                description={"On Idea blogs encourages learning. Idea blogs present you new fresh blogs on plathora of topics. Read latest blogs on armaancodes.com/idea"}
-                seoDescription={"On Idea blogs encourages learning. Idea blogs present you new fresh blogs on plathora of topics. Read latest blogs on armaancodes.com/idea"}
+                title={"!dea | mpho.vincetek.co.za"}
+                seoTitle={"!dea | mpho.vincetek.co.za"}
+                seoURL={"https://mpho.vincetek.co.za/idea"}
+                keywords={"web blogs, vincetek blogs, vincetek.co.za blogs, programming blogs, latest blogs, mpho vincent makgwe software developer blogs, idea blogs, latest idea blogs"}
+                description={"On Idea blogs encourages learning. Idea blogs present you new fresh blogs on plathora of topics. Read latest blogs on mpho.vincetek.co.za/idea"}
+                seoDescription={"On Idea blogs encourages learning. Idea blogs present you new fresh blogs on plathora of topics. Read latest blogs on mpho.vincetek.co.za/idea"}
                 seoImage={"https://github.com/armaanjaj/portfolio_v2/assets/113659942/d9453b3c-5259-453d-9320-6ccbbeca3a04"}
                 twitterCreator={"https://github.com/armaanjaj/portfolio_v2/assets/113659942/d9453b3c-5259-453d-9320-6ccbbeca3a04"}
                 theme="#C670DF"
@@ -117,7 +117,7 @@ export default function BlogSlugPage() {
                                                     <li>&#9679; {item}</li>
                                                 )}
                                             </ul>
-                                    ))}
+                                        ))}
                                     {section.code && (
                                         <CodeBlock
                                             text={section.code.join("\n")}

@@ -15,7 +15,7 @@ function Home() {
     const [loading, setLoading] = useState(false);
 
     const projectData = useAxios({
-        method: "get",
+        method: "post",
         url: "/api/getProjects",
         headers: JSON.stringify({ accept: "*/*" }),
     });
@@ -30,7 +30,7 @@ function Home() {
     }, [projectData]);
 
     const setTitle = () => {
-        document.title = "Projects | armaancodes.com";
+        document.title = "Projects | mpho.vincetek.co.za";
     };
 
     // ----------------- IF READING PROJECTS FROM FILE --------------------------
@@ -44,9 +44,9 @@ function Home() {
     return (
         <>
             <Meta
-                title={"Projects | armaancodes.com"}
-                seoTitle={"Projects | armaancodes.com"}
-                seoURL={"https://www.armaancodes.com/projects"}
+                title={"Projects | mpho.vincetek.co.za"}
+                seoTitle={"Projects | mpho.vincetek.co.za"}
+                seoURL={"https://mpho.vincetek.co.za/projects"}
             />
             <div className="bg-[#08001A] min-h-screen pt-10">
                 <div className={styles.container}>

@@ -2,6 +2,9 @@ import * as fs from "fs";
 import path from "path";
 
 export default async function getProjects(req, res) {
+    if (req.method !== "GET" && req.method !== "POST") {
+        return res.status(405).json({ message: "Method Not Allowed" });
+    }
     try {
         const skillsDir = path.join(process.cwd(), 'data', 'skillData', 'skills');
         let data = await fs.promises.readdir(skillsDir);
