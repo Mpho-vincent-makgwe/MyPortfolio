@@ -6,9 +6,9 @@ function Meta({
     description = "Mpho Vincent Makgwe is a Full stack web developer and designer who specializes in building exceptional digital experiences and this particular portfolio project is designed and built by Armaan Jaj.",
     seoTitle = "Mpho Vincent Makgwe | Software Developer",
     seoDescription = "Mpho Vincent Makgwe is a Full stack web developer and designer who specializes in building exceptional digital experiences and this particular portfolio project is designed and built by Armaan Jaj.",
-    seoURL = "https://www.Mpho.vincetek.co.za/",
+    seoURL = "https://mpho.vincetek.co.za/",
     seoImage = "",
-    twitterCreator = "mphoVincentMakgwe",
+    twitterCreator = "MphoVincentMakgweofficial",
     theme = "#08001A"
 }) {
     return (
@@ -39,7 +39,7 @@ function Meta({
             />
 
             <meta charSet="utf-8" />
-            <link rel="canonical" href="https://www.Mpho.vincetek.co.za/" />
+            <link rel="canonical" href="https://mpho.vincetek.co.za/" />
             <link rel="icon" href="/favicon.ico" />
             <title>{title}</title>
         </Head>

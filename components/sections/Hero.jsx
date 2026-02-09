@@ -87,7 +87,7 @@ function Hero() {
                                     className="flex flex-row justify-center items-center w-[3rem] h-[3rem] rounded-full bg-white/10 hover:bg-white/20 transition-all"
                                 >
                                     <Link
-                                        href={"https://instagram.com/armaan_jaj"}
+                                        href={"https://www.instagram.com/king_vince014_rsa/"}
                                         target={"_blank"}
                                         className="text-secondary"
                                     >

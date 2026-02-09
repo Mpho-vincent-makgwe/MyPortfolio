@@ -103,23 +103,23 @@ function Contact() {
                 <div className="flex justify-evenly items-start rounded-[5px] flex-wrap relative gap-4 mobile:flex-col tablet:flex-col laptop:flex-row desktop:flex-row bg-[#110036] w-full p-5 mobile:text-[1.5rem] tablet:text-[1.5rem] laptop:text-[1rem] desktop:text-[1rem]">
                     <div className="flex flex-col justify-start gap-5 mobile:items-start tablet:items-start laptop:items-center desktop:items-center">
                         <motion.div
-                                initial={{
-                                    opacity: 0,
-                                    y: 10,
-                                }}
-                                whileInView={{
-                                    opacity: 1,
-                                    y: 0,
-                                }}
-                                viewport={{
-                                    once: true,
-                                    amount: 1,
-                                }}
-                                transition={{
-                                    duration: 1,
-                                    delay: 0.3,
-                                    type: "spring",
-                                }} className="font-bold">Let&apos;s talk</motion.div>
+                            initial={{
+                                opacity: 0,
+                                y: 10,
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                y: 0,
+                            }}
+                            viewport={{
+                                once: true,
+                                amount: 1,
+                            }}
+                            transition={{
+                                duration: 1,
+                                delay: 0.3,
+                                type: "spring",
+                            }} className="font-bold">Let&apos;s talk</motion.div>
                         <motion.div
                             initial={{
                                 opacity: 0,
@@ -140,9 +140,9 @@ function Contact() {
                             }}
                             className="gap-3 flex flex-row justify-center items-center px-[1rem] py-[0.50rem] bg-[#350078] rounded-[8px] text-[1rem] font-bold hover:cursor-pointer"
                         >
-                                <div>
-                                    <MailIcon/>
-                                </div>
+                            <div>
+                                <MailIcon />
+                            </div>
                             <Link href={"mailto:Makgwe44@gmail.com"}>
                                 Get in touch
                             </Link>
@@ -150,23 +150,23 @@ function Contact() {
                     </div>
                     <div className="flex flex-col justify-start gap-5 mobile:items-start tablet:items-start laptop:items-center desktop:items-center">
                         <motion.div
-                                initial={{
-                                    opacity: 0,
-                                    y: 10,
-                                }}
-                                whileInView={{
-                                    opacity: 1,
-                                    y: 0,
-                                }}
-                                viewport={{
-                                    once: true,
-                                    amount: 1,
-                                }}
-                                transition={{
-                                    duration: 1,
-                                    delay: 0.3,
-                                    type: "spring",
-                                }} className="font-bold">Follow</motion.div>
+                            initial={{
+                                opacity: 0,
+                                y: 10,
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                y: 0,
+                            }}
+                            viewport={{
+                                once: true,
+                                amount: 1,
+                            }}
+                            transition={{
+                                duration: 1,
+                                delay: 0.3,
+                                type: "spring",
+                            }} className="font-bold">Follow</motion.div>
                         <div className="flex flex-col justify-start items-start gap-3">
                             <motion.div
                                 initial={{
@@ -190,7 +190,7 @@ function Contact() {
                                 <Link
                                     target="_blank"
                                     href={
-                                        "https://linkedin.com/in/connectarmaan"
+                                        "https://www.linkedin.com/in/mpho-vincent-makgwe-1ab386199/"
                                     }
                                 >
                                     <div className="gap-3 flex flex-row justify-center items-center px-[1rem] py-[0.50rem] bg-[#350078] rounded-[8px] text-[1rem] font-bold">
@@ -222,13 +222,13 @@ function Contact() {
                             >
                                 <Link
                                     target="_blank"
-                                    href={"https://github.com/armaanjaj"}
+                                    href={"https://github.com/Mpho-vincent-makgwe"}
                                 >
                                     <div className="gap-3 flex flex-row justify-center items-center px-[1rem] py-[0.50rem] bg-[#350078] rounded-[8px] text-[1rem] font-bold">
                                         <div>
                                             <GitHubIcon />
                                         </div>
-                                        <div>@Mpho-Vincent-Makgwe</div>
+                                        <div>Mpho Vincent Makgwe</div>
                                     </div>
                                 </Link>
                             </motion.div>

@@ -6,9 +6,11 @@ import NodeCache from "node-cache";
 // constants
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
 const PRIVATE_ACCES_TOKEN = process.env.PRIVATE_ACCES_TOKEN;
-const ACCOUNT_PERSONAL = "armaanjaj"
+const ACCOUNT_PERSONAL = "Mpho-vincent-makgwe"
 const ACCOUNT_COLLEGE = "armaansinghjaj"
 const API_URL = "https://api.github.com";
+
+console.log("getProject API initialized with account:", ACCOUNT_PERSONAL);
 
 // cache configurations
 const cache = new NodeCache({
