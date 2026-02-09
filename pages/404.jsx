@@ -32,7 +32,7 @@ export default function Custom404() {
                 </h1>
 
                 <p className="text-gray-400 text-lg mb-10 leading-relaxed">
-                    The route you're looking for doesn't exist or has been moved to another coordinate in the universe.
+                    The route you&apos;re looking for doesn&apos;t exist or has been moved to another coordinate in the universe.
                 </p>
 
                 <div className="flex flex-col tablet:flex-row gap-4 justify-center">
