@@ -1,26 +1,29 @@
-"use client";
 import React from "react";
+import dynamic from "next/dynamic";
 import styles from "@/styles/index.module.css";
-import Hero from "@/components/sections/Hero";
-import Navigation from "@/components/Navigation";
-import About from "@/components/sections/About";
-import Projects from "@/components/sections/Projects";
-import Skills from "@/components/sections/Skills";
-import Contact from "@/components/sections/Contact";
 import Meta from "@/components/Meta";
-import Featured from "@/components/sections/Featured";
-import Idea from "@/components/Logo/Idea";
-import Link from "next/link";
-import { getGitHubProjects } from "../lib/github";
 
-export default function Home({ projects, skills }) {
+// Dynamically import all sections with SSR disabled to identify the offending component
+const Navigation = dynamic(() => import("@/components/Navigation"), { ssr: false });
+const Hero = dynamic(() => import("@/components/sections/Hero"), { ssr: false });
+const About = dynamic(() => import("@/components/sections/About"), { ssr: false });
+const Projects = dynamic(() => import("@/components/sections/Projects"), { ssr: false });
+const Skills = dynamic(() => import("@/components/sections/Skills"), { ssr: false });
+const Contact = dynamic(() => import("@/components/sections/Contact"), { ssr: false });
+const Featured = dynamic(() => import("@/components/sections/Featured"), { ssr: false });
+const Idea = dynamic(() => import("@/components/Logo/Idea"), { ssr: false });
+const Link = dynamic(() => import("next/link"), { ssr: false });
+
+export default function Home({ projects = [], skills = [] }) {
     const [mounted, setMounted] = React.useState(false);
 
     React.useEffect(() => {
         setMounted(true);
     }, []);
 
-    if (!mounted) return null;
+    if (!mounted) {
+        return <div style={{ background: "#08001A", height: "100vh" }}></div>;
+    }
 
     return (
         <main className="bg-[#08001A]">
@@ -35,7 +38,7 @@ export default function Home({ projects, skills }) {
                 <Contact />
                 <footer className="w-full h-full flex flex-row justify-center items-center pt-10">
                     <div className="flex flex-col justify-center items-center">
-                        <div className="font-bold">Read my latest blogs at</div>
+                        <div className="font-bold text-white">Read my latest blogs at</div>
                         <Link href={"/blogs"}>
                             <Idea />
                         </Link>
@@ -47,28 +50,10 @@ export default function Home({ projects, skills }) {
 }
 
 export async function getStaticProps() {
-    try {
-        console.log("ISOLATION TEST: Skipping getGitHubProjects...");
-        // const projects = await getGitHubProjects();
-        return {
-            props: {
-                projects: [],
-                skills: [],
-            },
-            revalidate: 3600,
-        };
-    } catch (error) {
-        console.error("CRITICAL: Error in Home getStaticProps:", {
-            message: error.message,
-            stack: error.stack,
-            time: new Date().toISOString()
-        });
-        return {
-            props: {
-                projects: [],
-                skills: [],
-            },
-            revalidate: 60, // Revisit sooner if failed
-        };
-    }
+    return {
+        props: {
+            projects: [],
+            skills: [],
+        },
+    };
 }

@@ -5,7 +5,8 @@ import NodeCache from "node-cache";
 // cache configurations
 const cache = new NodeCache({
     stdTTL: 1800,
-    checkperiod: 300,
+    checkperiod: 0,
+    useClones: false
 });
 
 // check if server has fresh cached data, if yes return the fresh/valid data

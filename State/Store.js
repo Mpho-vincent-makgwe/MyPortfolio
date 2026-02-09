@@ -4,9 +4,25 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import reducers from "./Reducers/reducers";
 
+const createNoopStorage = () => {
+    return {
+        getItem(_key) {
+            return Promise.resolve(null);
+        },
+        setItem(_key, value) {
+            return Promise.resolve(value);
+        },
+        removeItem(_key) {
+            return Promise.resolve();
+        },
+    };
+};
+
+const storage_engine = typeof window !== "undefined" ? storage : createNoopStorage();
+
 const persistConfig = {
     key: "root",
-    storage,
+    storage: storage_engine,
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
