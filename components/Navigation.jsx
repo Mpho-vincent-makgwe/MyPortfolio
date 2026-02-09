@@ -12,11 +12,14 @@ function Hamburger() {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    if (typeof window !== "undefined") {
-        window.onscroll = () => {
-            if (scrollY < window.innerHeight) setIsMenuOpen(false);
+    React.useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY < window.innerHeight) setIsMenuOpen(false);
         };
-    }
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const menuVariants = {
         open: {

@@ -12,6 +12,14 @@ import Link from "next/link";
 import { getGitHubProjects } from "../lib/github";
 
 export default function Home({ projects, skills }) {
+    const [mounted, setMounted] = React.useState(false);
+
+    React.useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return null;
+
     return (
         <main className="bg-[#08001A]">
             <Meta />
