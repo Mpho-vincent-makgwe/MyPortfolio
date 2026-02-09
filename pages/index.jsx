@@ -25,7 +25,7 @@ export default function Home({ projects, skills }) {
                 <Contact />
                 <footer className="w-full h-full flex flex-row justify-center items-center pt-10">
                     <div className="flex flex-col justify-center items-center">
-                        <div className="font-bold">Read all my latest blogs at</div>
+                        <div className="font-bold">Read my latest blogs at</div>
                         <Link href={"/blogs"}>
                             <Idea />
                         </Link>
