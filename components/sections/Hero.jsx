@@ -23,7 +23,7 @@ function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-4xl tablet:text-5xl laptop:text-7xl font-extrabold text-white leading-tight mb-4"
+                        className="text-3xl tablet:text-5xl laptop:text-7xl font-extrabold text-white leading-tight mb-4"
                     >
                         Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary animate-gradient-x">Mpho Vincent</span>
                     </motion.h1>
@@ -32,7 +32,7 @@ function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className="text-xl tablet:text-2xl laptop:text-3xl font-medium text-gray-400 mb-8"
+                        className="text-lg tablet:text-2xl laptop:text-3xl font-medium text-gray-400 mb-8"
                     >
                         Crafting <span className="text-white">exceptional</span> digital experiences
                     </motion.h2>

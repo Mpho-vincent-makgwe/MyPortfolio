@@ -72,9 +72,9 @@ function About() {
                     </div>
 
                     {/* Floating decoration */}
-                    <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-secondary/10 backdrop-blur-3xl border border-white/10 rounded-2xl flex items-center justify-center p-4 shadow-2xl animate-float">
+                    <div className="absolute -bottom-6  w-24 h-24 bg-secondary/10 backdrop-blur-3xl border border-white/10 rounded-2xl flex items-center justify-center p-4 shadow-2xl animate-float">
                         <div className="w-full h-full border border-secondary/20 rounded-lg flex items-center justify-center text-[10px] font-black text-secondary leading-none text-center uppercase tracking-tighter">
-                            Dev since 2021
+                            Dev since 2023
                         </div>
                     </div>
                 </motion.div>

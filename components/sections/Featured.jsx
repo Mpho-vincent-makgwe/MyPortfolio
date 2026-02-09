@@ -11,7 +11,7 @@ function Featured() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="relative overflow-hidden p-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl flex flex-row justify-between items-center gap-10 shadow-2xl"
+                className="relative overflow-hidden p-8 tablet:p-12 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl flex flex-col laptop:flex-row justify-between items-center gap-10 shadow-2xl"
             >
                 {/* Decorative background glow */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-3xl rounded-full -mr-10 -mt-10"></div>
@@ -21,7 +21,7 @@ function Featured() {
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-white text-2xl font-bold mb-2 flex items-center gap-3"
+                        className="text-white text-2xl font-bold mb-2 flex items-center justify-center laptop:justify-start gap-3"
                     >
                         Stay Updated <span className="text-secondary opacity-50 text-base font-normal">| Latest Insights</span>
                     </motion.h2>
@@ -29,7 +29,7 @@ function Featured() {
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
-                        className="text-gray-400 max-w-lg"
+                        className="text-gray-400 max-w-lg text-center laptop:text-left mx-auto laptop:mx-0"
                     >
                         I regularly share my thoughts on software engineering, modern web technologies, and the future of full-stack development.
                     </motion.p>
