@@ -30,7 +30,7 @@ export default function BlogIndex({ blogs, topics }) {
             <Meta
                 title={"Blogs | Mpho Vincent Makgwe"}
                 seoTitle={"Blogs | Mpho Vincent Makgwe"}
-                seoURL={"https://www.Mpho.vincetek.co.za/blogs"}
+                seoURL={"https://mpho.vincetek.co.za/blogs"}
                 keywords={"web blogs, programming blogs, latest blogs"}
                 description={"Read my latest blogs on web development and technology."}
                 seoDescription={"Read my latest blogs on web development and technology."}
