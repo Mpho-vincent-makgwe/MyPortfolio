@@ -39,3 +39,6 @@ To clone this project, you will need to perform multiple steps.
 2. In the same directory where you cloned the project run ```npm i```.
 3. Finally run this project using, ```npm run dev```.
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+feel free to contact me
+
